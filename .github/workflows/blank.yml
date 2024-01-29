@@ -21,14 +21,5 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y android-tools-adb
 
-    - name: Cache adb executable
-      uses: actions/cache@v2
-      with:
-        path: |
-          /usr/bin/adb
-        key: ${{ runner.os }}-adb-${{ hashFiles('/usr/bin/adb') }}
-        restore-keys: |
-          ${{ runner.os }}-adb-
-
     - name: test
       run: adb version
